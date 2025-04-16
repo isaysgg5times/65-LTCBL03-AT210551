@@ -1,0 +1,37 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define M_PI 3.14159265358979323846
+
+int main()
+{
+    double eps, n, x, sin;
+    int i = 1, j;
+    long long k;
+
+    printf("Nhap x:");
+    scanf("%lf", &x);
+    printf("Nhap eps:");
+    scanf("%lf", &eps);
+
+    printf("sin(%f) =", x);
+    double radian=x*M_PI/180;
+    n=radian;
+    sin=n;
+    do
+    {
+        k=1;
+        for(j=1; j<=2*i+1; j++)
+        {
+            k*=j;
+        }
+        n=pow((-1), i)*pow(radian,2*i+1)/k;
+        sin+=n;
+        i++;
+    } while (fabs(n)>eps);
+    printf(" %f", sin);
+    return 0;
+}
+
